@@ -1,3 +1,130 @@
-h1 {
-  color: green;
+/* General */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Georgia", serif;
+}
+
+/* Variables */
+
+:root {
+  --violet-100: oklch(94.3% 0.029 294.588);
+  --violet-200: oklch(89.4% 0.057 293.283);
+  --blue-100: oklch(93.2% 0.032 255.585);
+  --blue-50: oklch(97% 0.014 254.604);
+  --blue-500: oklch(62.3% 0.214 259.815);
+  --red-300: oklch(80.8% 0.114 19.571);
+  --red-200: oklch(88.5% 0.062 18.334);
+  --yellow-300: oklch(90.5% 0.182 98.111);
+  --yellow-200: oklch(94.5% 0.129 101.54);
+  --green-300: oklch(87.1% 0.15 154.449);
+  --green-200: oklch(92.5% 0.084 155.995);
+}
+
+/* Elements */
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+  color: black;
+  background-color: var(--violet-200);
+}
+
+body {
+  background-color: var(--violet-100);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  background-color: var(--violet-200);
+}
+
+/* Classes */
+
+.conteneur-principal {
+  min-height: 100vh; /* 100% de la hauteur du viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+.conteneur-corps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.tpe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--blue-500);
+  padding: 10px;
+  border: 1px solid; /* Bordure d'un pixel d'épaisseur et de style 'solid' */
+  border-radius: 10px; /* Bordure avec un rayon d'arrondi de 10 pixels */
+  .ecran {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    gap: 10px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+  }
+  .tpe-boutons {
+    display: grid;
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Chaque ligne de la grille a 3 elements */
+    gap: 10px;
+    button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid;
+      border-radius: 10px;
+      background-color: var(--blue-100);
+    }
+    .bouton-tpe-rouge {
+      background-color: var(--red-300);
+    }
+    .bouton-tpe-rouge:hover {
+      background-color: var(--red-200);
+    }
+
+    .bouton-tpe-jaune {
+      background-color: var(--yellow-300);
+    }
+    .bouton-tpe-jaune:hover {
+      background-color: var(--yellow-200);
+    }
+    .bouton-tpe-vert {
+      background-color: var(--green-300);
+    }
+    .bouton-tpe-vert:hover {
+      background-color: var(--green-200);
+    }
+    button:hover {
+      background-color: var(--blue-50);
+      cursor: pointer;
+    }
+    button:active {
+      border: 1px solid white;
+    }
+  }
 }
