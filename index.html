@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPE virtuel</title>
-    <link rel="stylesheet" href="styles/style.css" />
-    <script src="scripts/script.js"></script>
+    <link href="styles/style.css" rel="stylesheet" />
+    <script src="scripts/app.js" defer></script>
   </head>
   <body>
     <div class="conteneur-principal">
@@ -46,6 +46,13 @@
           </div>
         </div>
       </div>
+      <div class="modal" id="result-modal" hidden>
+        <button class="btn-annuler">x</button>
+        <h2>quels type de transaction souhaitez-vous simuler?</h2>
+        <button class="btn-reussie">Transaction réussie</button>
+        <button class="btn-echouee">Transaction échouée</button>
+      </div>
+
       <footer>
         <span>Vivaticket @ 2025</span>
       </footer>
