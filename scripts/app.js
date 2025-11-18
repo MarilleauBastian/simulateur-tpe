@@ -1,6 +1,7 @@
 (() => {
   const btnVert = document.querySelector(".bouton-tpe-vert");
   const btnRouge = document.querySelector(".bouton-tpe-rouge");
+  const btnJaune = document.querySelector(".bouton-tpe-jaune");
 
   const btnAnnuler = document.querySelector(".btn-annulation-transaction");
   const btnReussie = document.querySelector(".btn-reussite-transaction");
@@ -33,13 +34,11 @@
     if (!btn) return;
 
     const key = btn.textContent.trim();
-    //if (ligne1 === "20€") {
+
     if (/^[0-9]$/.test(key) && codeSaisi.length < 4) {
       ligne2.textContent += "*";
       codeSaisi += key;
-    }
-    //}
-    else if (key === "O") {
+    } else if (key === "O") {
       if (codeSaisi === codeAttendu) {
         modal.hidden = false;
       } else {
@@ -49,6 +48,9 @@
     } else if (key === "X") {
       ligne1.textContent = "Transaction annulée";
       renitialiser();
+    } else if (key === "<") {
+      ligne2.textContent = ligne2.textContent.slice(0, -1);
+      codeSaisi = codeSaisi.slice(0, -1);
     }
   });
 
