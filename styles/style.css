@@ -168,20 +168,20 @@ footer {
     padding: 3px;
     font-size: 20px;
   }
-  .btn-annuler {
+  .btn-annulation-transaction {
     align-self: flex-end;
   }
-  .btn-reussie {
+  .btn-reussite-transaction {
     background-color: var(--green-300);
   }
-  .btn-reussie:hover {
+  .btn-reussite-transaction:hover {
     background-color: var(--green-200);
   }
 
-  .btn-echouee {
+  .btn-echec-transaction {
     background-color: var(--red-300);
   }
-  .btn-echouee:hover {
+  .btn-echec-transaction:hover {
     background-color: var(--red-200);
   }
   button:hover {
