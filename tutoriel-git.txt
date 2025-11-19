@@ -1,0 +1,17 @@
+Initialiser un repository git :
+git init
+(ça créé un dossier .git)
+
+Indiquer qui on est à Git :
+git config --local user.name "MarilleauBastian"
+git config --local user.email "MarilleauBastian@gmail.com"
+
+Passer tous les dossiers et fichiers modifiés/créés en "staged" :
+git add .
+
+Créer un commit :
+git commit -m "Description des changements"
+
+Envoyer le commit sur GitHub :
+git push -u origin main
+ 
