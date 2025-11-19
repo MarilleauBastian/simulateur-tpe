@@ -14,17 +14,22 @@
 
   const pad = document.querySelector(".tpe-boutons");
 
-  const texteInitial = document.querySelector(".ligne1");
+  const texteInitial = "20€";
 
-  ligne1.textContent += "20€";
+  ligne1.textContent = texteInitial;
 
   const codeAttendu = "1234";
 
   let codeSaisi = "";
 
-  function renitialiser() {
+  let revertTimer = null;
+
+  function reinitialiserAvecTimer() {
     ligne2.textContent = "";
     codeSaisi = "";
+    revertTimer = setTimeout(() => {
+      ligne1.textContent = texteInitial;
+    }, 3000);
   }
 
   /* Listener TPE */
@@ -35,22 +40,24 @@
 
     const key = btn.textContent.trim();
 
-    if (/^[0-9]$/.test(key) && codeSaisi.length < 4) {
-      ligne2.textContent += "*";
-      codeSaisi += key;
-    } else if (key === "O") {
-      if (codeSaisi === codeAttendu) {
-        modal.hidden = false;
-      } else {
-        ligne1.textContent = "Code erroné";
-        renitialiser();
+    if (ligne1.textContent === texteInitial) {
+      if (/^[0-9]$/.test(key) && codeSaisi.length < 4) {
+        ligne2.textContent += "*";
+        codeSaisi += key;
+      } else if (key === "O") {
+        if (codeSaisi === codeAttendu) {
+          modal.hidden = false;
+        } else {
+          ligne1.textContent = "Code erroné";
+          reinitialiserAvecTimer();
+        }
+      } else if (key === "X") {
+        ligne1.textContent = "Transaction annulée";
+        reinitialiserAvecTimer();
+      } else if (key === "<") {
+        ligne2.textContent = ligne2.textContent.slice(0, -1);
+        codeSaisi = codeSaisi.slice(0, -1);
       }
-    } else if (key === "X") {
-      ligne1.textContent = "Transaction annulée";
-      renitialiser();
-    } else if (key === "<") {
-      ligne2.textContent = ligne2.textContent.slice(0, -1);
-      codeSaisi = codeSaisi.slice(0, -1);
     }
   });
 
@@ -60,14 +67,14 @@
   btnReussie.addEventListener("click", () => {
     modal.hidden = true;
     ligne1.textContent = "Transaction réussie";
-    renitialiser();
+    reinitialiserAvecTimer();
   });
 
   /* --- Bouton echec = simule une transaction écouchée et ferme le modal --- */
   btnEchouee.addEventListener("click", () => {
     modal.hidden = true;
     ligne1.textContent = "Transaction échouée";
-    renitialiser();
+    reinitialiserAvecTimer();
   });
 
   /* --- Bouton ANNULER = ferme le modal --- */
